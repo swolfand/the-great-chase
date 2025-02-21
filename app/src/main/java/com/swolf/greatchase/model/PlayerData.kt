@@ -1,4 +1,4 @@
-package com.swolf.greatchase.api
+package com.swolf.greatchase.model
 
 import kotlinx.serialization.Serializable
 

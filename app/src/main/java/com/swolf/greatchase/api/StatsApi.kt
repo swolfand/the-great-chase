@@ -1,5 +1,6 @@
 package com.swolf.greatchase.api
 
+import com.swolf.greatchase.model.PlayerData
 import retrofit2.http.GET
 import retrofit2.http.Path
 
