@@ -6,5 +6,6 @@ import retrofit2.http.Path
 
 interface StatsApi {
 
-  @GET("/player/{playerId}/landing") fun playerStats(@Path("playerId") playerId: Int): PlayerData
+  @GET("/player/{playerId}/landing")
+  suspend fun playerStats(@Path("playerId") playerId: Int): PlayerData
 }
