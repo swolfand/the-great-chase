@@ -8,18 +8,19 @@ import kotlinx.coroutines.flow.flow
 
 interface StatsRepository {
 
-  fun getPlayerStats(playerId: Int): Flow<PlayerDataResult>
+  fun getPlayerStats(playerId: Int = 8471214): Flow<PlayerDataResult>
 }
 
 class StatsRepositoryImpl() : StatsRepository {
   override fun getPlayerStats(playerId: Int): Flow<PlayerDataResult> = flow {
-    emit(PlayerStatsService.statsApi.playerStats(playerId = 8471214).toPlayerDataResult())
+    emit(PlayerStatsService.statsApi.playerStats(playerId = playerId).toPlayerDataResult())
   }
 }
 
 data class PlayerDataResult(
   val playerId: Int,
   val teamLogoUrl: String,
+  val teamName: String,
   val badges: List<Badge>,
   val playerName: String,
   val playerNumber: Int,
@@ -44,5 +45,6 @@ fun PlayerData.toPlayerDataResult(): PlayerDataResult {
     careerGoals = careerTotals.regularSeason.goals,
     seasonGoals = featuredStats.regularSeason.subSeason.goals,
     last5GamesGoals = last5Games.sumOf { it.goals },
+    teamName = fullTeamName.default
   )
 }
