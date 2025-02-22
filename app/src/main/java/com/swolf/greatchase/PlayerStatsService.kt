@@ -20,4 +20,6 @@ private val retrofit =
     .addConverterFactory(Json.asConverterFactory("application/json; charset=UTF8".toMediaType()))
     .build()
 
-val playerStatsApi = retrofit.create(StatsApi::class.java)
+object PlayerStatsService {
+  val statsApi: StatsApi = retrofit.create(StatsApi::class.java)
+}
