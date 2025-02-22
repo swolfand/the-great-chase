@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.kotlinx.serialization)
     implementation(libs.okhttp.logging)
     implementation(libs.okhttp)
+    lintChecks(libs.slack.compose.lint)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
